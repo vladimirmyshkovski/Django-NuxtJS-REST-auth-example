@@ -1,0 +1,5 @@
+[run]
+include = django_nustjs_rest_auth_example/*
+omit = *migrations*, *tests*
+plugins =
+    django_coverage_plugin

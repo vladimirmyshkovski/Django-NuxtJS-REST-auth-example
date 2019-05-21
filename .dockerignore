@@ -1,0 +1,7 @@
+.*
+!.coveragerc
+!.env
+!.envs/.local/.nuxt
+!.envs/.production/.nuxt
+!.pylintrc
+/frontend/node_modules
