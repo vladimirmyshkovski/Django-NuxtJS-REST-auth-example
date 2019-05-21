@@ -1,42 +1,13 @@
-from django.contrib.auth import get_user_model
-from django.contrib.auth.mixins import LoginRequiredMixin
-from django.urls import reverse
-from django.views.generic import DetailView, RedirectView, UpdateView
+from rest_framework.viewsets import ReadOnlyModelViewSet
 
-User = get_user_model()
+from .models import User
+from .serializers import UserSerializer
 
 
-class UserDetailView(LoginRequiredMixin, DetailView):
+class UserViewSet(ReadOnlyModelViewSet):
+    """
+    A simple ViewSet for viewing users.
+    """
 
-    model = User
-    slug_field = "username"
-    slug_url_kwarg = "username"
-
-
-user_detail_view = UserDetailView.as_view()
-
-
-class UserUpdateView(LoginRequiredMixin, UpdateView):
-
-    model = User
-    fields = ["name"]
-
-    def get_success_url(self):
-        return reverse("users:detail", kwargs={"username": self.request.user.username})
-
-    def get_object(self):
-        return User.objects.get(username=self.request.user.username)
-
-
-user_update_view = UserUpdateView.as_view()
-
-
-class UserRedirectView(LoginRequiredMixin, RedirectView):
-
-    permanent = False
-
-    def get_redirect_url(self):
-        return reverse("users:detail", kwargs={"username": self.request.user.username})
-
-
-user_redirect_view = UserRedirectView.as_view()
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
