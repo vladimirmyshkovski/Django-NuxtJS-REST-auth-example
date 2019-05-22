@@ -5,6 +5,11 @@
         <v-card-text>
           <v-container>
             <form ref="form" @submit.prevent="onSignin">
+              <v-layout row wrap justify-center my-3>
+                <v-btn color="primary" @click="onFacebookLogin">
+                  Facebook
+                </v-btn>
+              </v-layout>
               <v-layout row>
                 <v-flex xs-12>
                   <v-text-field
@@ -67,6 +72,14 @@
 export default {
   middleware: 'anonymous',
   layout: 'default',
+  head: {
+    title: 'SignIn page',
+    script: [
+      {
+        src: '/js/facebook-sdk.js'
+      }
+    ]
+  },
   data: () => {
     return {
       username: '',
@@ -76,10 +89,23 @@ export default {
         password: [value => !!value || 'Please, enter password.']
       },
       restorePasswordUrl: { path: '/auth/password/reset' },
-      signUpUrl: { path: '/auth/signup' }
+      signUpUrl: { path: '/auth/signup' },
+      facebookLoginParams: {
+        scope: 'email',
+        return_scopes: true
+      }
     }
   },
   methods: {
+    onFacebookLogin(event, data) {
+      window.FB.login(response => {
+        console.log('response in onFacebookLogin', response) // eslint-disable-line no-console
+        console.log('response.status', response.status) // eslint-disable-line no-console
+        if (response.status === 'connected') {
+          this.$store.dispatch('facebookSignUp', response.authResponse)
+        }
+      }, this.facebookLoginParams)
+    },
     onSignin() {
       this.$store.dispatch('signIn', {
         username: this.username,

@@ -2,7 +2,7 @@ export default function({ store, $axios, redirect }) {
   $axios.onRequest(config => {
     store.commit('setLoading', true)
     if (store.state.auth.token) {
-      config.headers.common['Authorization'] = `JWT ${store.state.auth.token}`
+      config.headers.common.Authorization = `JWT ${store.state.auth.token}`
     }
   })
   $axios.onError(error => {
