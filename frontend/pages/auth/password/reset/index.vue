@@ -10,7 +10,7 @@
                   <v-text-field
                     id="email"
                     v-model="email"
-                    :rules="[rules.required]"
+                    :rules="emailRules"
                     :error="errors.email.length > 0"
                     :error-messages="errors.email"
                     name="email"
@@ -47,11 +47,9 @@ export default {
   data() {
     return {
       email: '',
+      emailRules: [value => !!value || 'Required.'],
       errors: {
         email: []
-      },
-      rules: {
-        required: value => !!value || 'Required.'
       }
     }
   },
