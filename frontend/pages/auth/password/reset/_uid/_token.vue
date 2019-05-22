@@ -60,16 +60,8 @@
 
 <script>
 export default {
-  asyncData({ params }) {
-    return {
-      uid: params.uid,
-      token: params.token
-    }
-  },
   data() {
     return {
-      uid: '',
-      token: '',
       password: '',
       confirmPassword: '',
       errors: {
@@ -87,6 +79,12 @@ export default {
           value => value === this.password || 'Passwords must match.'
         ]
       }
+    }
+  },
+  asyncData({ params }) {
+    return {
+      uid: params.uid,
+      token: params.token
     }
   },
   methods: {

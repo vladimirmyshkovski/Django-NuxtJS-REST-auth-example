@@ -15,5 +15,3 @@ COPY ./frontend/package-lock.json /app/frontend/package-lock.json
 WORKDIR /app/frontend
 
 RUN npm install
-
-EXPOSE 3000
