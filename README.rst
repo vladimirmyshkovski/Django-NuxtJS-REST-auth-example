@@ -31,7 +31,7 @@ Running type checks with mypy:
 
 ::
 
-  $ mypy django_nustjs_rest_auth_example
+  $ make mypy
 
 Test coverage
 ^^^^^^^^^^^^^
