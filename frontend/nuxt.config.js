@@ -52,6 +52,11 @@ export default {
    */
   axios: {
     // See https://github.com/nuxt-community/axios-module#options
+    proxy: true,
+    debug: true
+  },
+  proxy: {
+    '/api': 'http://localhost:5000'
   },
 
   /*

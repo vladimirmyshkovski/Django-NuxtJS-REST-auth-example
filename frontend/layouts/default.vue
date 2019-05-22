@@ -43,16 +43,7 @@
     </v-toolbar>
     <v-content>
       <v-container>
-        <v-layout v-if="$store.getters.messages" justify-center mt-5>
-          <alert
-            v-for="message in $store.getters.messages"
-            :key="message.text"
-            :text="message.text"
-            :type="message.type"
-            :value="$store.getters.show"
-            @dismissed="onDismissed"
-          />
-        </v-layout>
+        <alert />
         <nuxt />
       </v-container>
     </v-content>
