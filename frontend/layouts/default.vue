@@ -43,15 +43,11 @@
     </v-toolbar>
     <v-content>
       <v-container>
-        <v-layout
-          v-if="$store.getters.messages"
-          justify-center
-          mt-5
-        >
+        <v-layout v-if="$store.getters.messages" justify-center mt-5>
           <alert
             v-for="message in $store.getters.messages"
-            :text="message.text"
             :key="message.text"
+            :text="message.text"
             :type="message.type"
             :value="$store.getters.show"
             @dismissed="onDismissed"
