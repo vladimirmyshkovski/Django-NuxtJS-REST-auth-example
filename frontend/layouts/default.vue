@@ -43,6 +43,20 @@
     </v-toolbar>
     <v-content>
       <v-container>
+        <v-layout
+          v-if="$store.getters.messages"
+          justify-center
+          mt-5
+        >
+          <alert
+            v-for="message in $store.getters.messages"
+            :text="message.text"
+            :key="message.text"
+            :type="message.type"
+            :value="$store.getters.show"
+            @dismissed="onDismissed"
+          />
+        </v-layout>
         <nuxt />
       </v-container>
     </v-content>
@@ -63,7 +77,12 @@
 </template>
 
 <script>
+import Alert from '@/components/Alert'
+
 export default {
+  components: {
+    Alert
+  },
   data() {
     return {
       clipped: false,
