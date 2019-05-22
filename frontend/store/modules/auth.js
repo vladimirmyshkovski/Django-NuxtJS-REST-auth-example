@@ -114,6 +114,32 @@ const actions = {
         }
       })
   },
+  googleSignUp({ commit }, payload) {
+    this.$axios
+      .post('/api/v1/auth/google/', {
+        access_token: payload.access_token,
+        code: payload.id_token
+      })
+      .then(response => {
+        commit('setUser', response.data.user)
+        commit('setToken', response.data.token)
+        commit('setCookie', { key: 'JWT', value: response.data.token })
+        commit('setLoggedIn', true)
+        this.$router.push('/')
+      })
+      .catch(error => {
+        if ('non_field_errors' in error.response.data) {
+          const message = {
+            type: 'error',
+            text: error.response.data.non_field_errors[0]
+          }
+          commit('clearMessages')
+          commit('setMessage', message)
+          commit('showMessages')
+          commit('setErrors', error.response.data)
+        }
+      })
+  },
   signUp({ commit }, payload) {
     commit('clearMessages')
 

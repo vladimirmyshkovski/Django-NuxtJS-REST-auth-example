@@ -7,7 +7,9 @@ from django.views.generic import TemplateView
 from django.views import defaults as default_views
 from rest_auth.registration.views import VerifyEmailView
 from .routers import urlpatterns as api_urlpatterns
-from django_nustjs_rest_auth_example.users.views import FacebookLogin
+from django_nustjs_rest_auth_example.users.views import (
+    FacebookLogin, GoogleLogin
+)
 
 urlpatterns = [
     re_path(r"^$", RedirectView.as_view(
@@ -15,9 +17,11 @@ urlpatterns = [
         permanent=False)
     ),
     path("api/v1/auth/", include("rest_auth.urls")),
-    path("api/v1/auth/facebook/", FacebookLogin.as_view(), name="fb_login"),
+    path("api/v1/auth/facebook/", FacebookLogin.as_view()),
+    path("api/v1/auth/google/", GoogleLogin.as_view()),
     path("api/v1/auth/registration/", include("rest_auth.registration.urls")),
     path("api/v1/", include(api_urlpatterns)),
+    path("accounts/", include("allauth.urls")),
     path(settings.ADMIN_URL, admin.site.urls),
     re_path(
         r"^account-confirm-email/",

@@ -4,6 +4,7 @@ import Cookie from 'cookie'
 
 import alert from '@/store/modules/alert'
 import auth from '@/store/modules/auth'
+import core from '@/store/modules/core'
 
 Vue.use(Vuex)
 const createStore = () => {
@@ -11,7 +12,8 @@ const createStore = () => {
     namespaced: true,
     modules: {
       alert,
-      auth
+      auth,
+      core
     },
     actions: {
       async nuxtServerInit({ commit }, { req, $axios }) {

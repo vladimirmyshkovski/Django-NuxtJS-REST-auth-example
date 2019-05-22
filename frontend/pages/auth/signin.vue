@@ -6,8 +6,11 @@
           <v-container>
             <form ref="form" @submit.prevent="onSignin">
               <v-layout row wrap justify-center my-3>
-                <v-btn color="primary" @click="onFacebookLogin">
+                <v-btn color="primary" @click="onFacebookSignin">
                   Facebook
+                </v-btn>
+                <v-btn color="error" @click="onGoogleSignin">
+                  Google
                 </v-btn>
               </v-layout>
               <v-layout row>
@@ -17,7 +20,7 @@
                     v-model="username"
                     :rules="rules.username"
                     name="username"
-                    label="Login"
+                    label="Username"
                     type="text"
                     required
                   />
@@ -67,7 +70,6 @@
     </v-layout>
   </v-container>
 </template>
-
 <script>
 export default {
   middleware: 'anonymous',
@@ -77,6 +79,9 @@ export default {
     script: [
       {
         src: '/js/facebook-sdk.js'
+      },
+      {
+        src: 'https://apis.google.com/js/api:client.js'
       }
     ]
   },
@@ -93,18 +98,47 @@ export default {
       facebookLoginParams: {
         scope: 'email',
         return_scopes: true
+      },
+      googleSigninParams: {
+        scope: 'email'
       }
     }
   },
+  async mounted() {
+    await this.$nextTick(() => {
+      window.FB.getLoginStatus(response => {
+        if (response.status === 'connected') {
+          // this.$store.dispatch('facebookSignUp', response.authResponse)
+        }
+      })
+    })
+  },
   methods: {
-    onFacebookLogin(event, data) {
+    onFacebookSignin(event, data) {
       window.FB.login(response => {
-        console.log('response in onFacebookLogin', response) // eslint-disable-line no-console
-        console.log('response.status', response.status) // eslint-disable-line no-console
         if (response.status === 'connected') {
           this.$store.dispatch('facebookSignUp', response.authResponse)
         }
       }, this.facebookLoginParams)
+    },
+    onGoogleSignin() {
+      window.gapi.load('auth2', () => {
+        window.gapi.auth2.init({
+          client_id:
+            '104203513504-pjncrp8dconf7vmg430olec04kojo3bs.apps.googleusercontent.com'
+        })
+        const authInstance = window.gapi.auth2.getAuthInstance()
+        window.gapi.auth2.SignInOptions = { scope: 'profile email' }
+        authInstance
+          .signIn({ scope: 'profile email' })
+          .then(response => {
+            console.log('response', response.Zi) // eslint-disable-line no-console
+            this.$store.dispatch('googleSignUp', response.Zi)
+          })
+          .catch(error => {
+            console.log('error', error) // eslint-disable-line no-console
+          })
+      })
     },
     onSignin() {
       this.$store.dispatch('signIn', {
