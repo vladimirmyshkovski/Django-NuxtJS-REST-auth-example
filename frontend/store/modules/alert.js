@@ -1,58 +1,41 @@
-import Cookies from 'js-cookie'
-
 const state = () => ({
-  user: null,
-  token: null,
-  loggedIn: false,
-  errors: {}
+  show: false,
+  messages: []
 })
 
 const getters = {
-  user(state) {
-    return state.user
+  messages(state) {
+    return state.messages
   },
-  token(state) {
-    return state.token
-  },
-  loggedIn(state) {
-    return state.loggedIn
-  },
-  errors(state) {
-    return state.errors
+  show(state) {
+    return state.show
   }
 }
 
 const mutations = {
-  setUser(state, payload) {
-    state.user = payload
-  },
-  setToken(state, payload) {
-    state.token = payload
-  },
-  setLoggedIn(state, payload) {
-    state.loggedIn = payload
-  },
-  setCookie(state, payload) {
-    let minutes
-    if ('date' in payload) {
-      minutes = payload.date
-    } else {
-      minutes = 30
+  setMessage(state, payload) {
+    const message = {
+      type: payload.type,
+      text: payload.text
     }
-    const date = new Date()
-    date.setTime(date.getTime() + minutes * 60 * 1000)
-    Cookies.set(payload.key, payload.value, { expires: date })
+    state.messages.push(message)
   },
-  clearCookie(state, payload) {
-    Cookies.remove(payload.key)
+  clearMessages(state) {
+    state.messages = []
   },
-  setErrors(state, payload) {
-    state.errors = payload
+  showMessages(state) {
+    state.show = true
+  },
+  hideMessages(state) {
+    state.show = false
   }
 }
+
+const actions = {}
 
 export default {
   state,
   getters,
-  mutations
+  mutations,
+  actions
 }
