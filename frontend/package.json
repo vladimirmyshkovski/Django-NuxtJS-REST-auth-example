@@ -17,6 +17,7 @@
     "cross-env": "^5.2.0",
     "nuxt": "^2.4.0",
     "vuetify": "^1.5.5",
+    "js-cookie": "^2.2.0",
     "vuetify-loader": "^1.2.1",
     "@nuxtjs/axios": "^5.3.6",
     "@nuxtjs/pwa": "^2.6.0"
