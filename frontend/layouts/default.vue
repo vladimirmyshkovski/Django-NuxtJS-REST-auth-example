@@ -43,6 +43,7 @@
     </v-toolbar>
     <v-content>
       <v-container>
+        <alert />
         <nuxt />
       </v-container>
     </v-content>
@@ -63,7 +64,12 @@
 </template>
 
 <script>
+import Alert from '@/components/Alert'
+
 export default {
+  components: {
+    Alert
+  },
   data() {
     return {
       clipped: false,
