@@ -18,4 +18,4 @@ before_install:
   - sudo mv docker-compose /usr/local/bin
 
 script:
-  - "make coverage"
+  - "make codecov"

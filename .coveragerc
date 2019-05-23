@@ -3,3 +3,6 @@ include = django_nustjs_rest_auth_example/*
 omit = *migrations*, *tests*, *__init__.py*, *conftest.py*
 plugins =
     django_coverage_plugin
+
+[tool:pytest]
+addopts = --cov --cov-append

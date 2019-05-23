@@ -1,3 +1,9 @@
+ifdef CODECOV_TOKEN
+	CODECOV_TOKEN := $(CODECOV_TOKEN)
+else
+	CODECOV_TOKEN := 4b52a91f-86ae-4acb-aba7-29c691512cab
+endif
+
 ifdef ENVIRONMENT
 	ENVIRONMENT := $(ENVIRONMENT)
 else
@@ -68,6 +74,10 @@ coverage:
 	sudo docker-compose -f ${ENVIRONMENT}.yml run --rm django coverage run -m py.test
 	sudo docker-compose -f ${ENVIRONMENT}.yml run --rm django coverage report
 	sudo docker-compose -f ${ENVIRONMENT}.yml run --rm django coverage html
+
+codecov:
+	sudo docker-compose -f ${ENVIRONMENT}.yml run --rm django pytest . -s --cov --no-cov-on-fail
+
 
 pre-commit:
 	sudo docker-compose -f ${ENVIRONMENT}.yml run --rm django mypy django_nustjs_rest_auth_example

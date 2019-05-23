@@ -2,3 +2,4 @@
 # ------------------------------------------------------------------------------
 USE_DOCKER=yes
 IPYTHONDIR=/app/.ipython
+CODECOV_TOKEN=4b52a91f-86ae-4acb-aba7-29c691512cab
