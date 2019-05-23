@@ -7,6 +7,13 @@ Django NustJS REST auth example
      :target: https://github.com/ambv/black
      :alt: Black code style
 
+.. image:: https://travis-ci.org/narnikgamarnikus/Django-NuxtJS-REST-auth-example.svg?branch=master
+     :target: https://travis-ci.org/narnikgamarnikus/Django-NuxtJS-REST-auth-example
+     :alt: Travis CI
+
+.. image:: https://codecov.io/gh/narnikgamarnikus/Django-NuxtJS-REST-auth-example/branch/master/graph/badge.svg
+  :target: https://codecov.io/gh/narnikgamarnikus/Django-NuxtJS-REST-auth-example
+  :alt: Codecov IO
 
 :License: MIT
 
