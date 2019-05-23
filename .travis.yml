@@ -2,6 +2,7 @@ sudo: true
 
 env:
   DOCKER_COMPOSE_VERSION: 1.24.0
+  CODECOV_TOKEN: "4b52a91f-86ae-4acb-aba7-29c691512cab"
 
 before_install:
   - sudo apt-get update
@@ -17,4 +18,4 @@ before_install:
   - sudo mv docker-compose /usr/local/bin
 
 script:
-  - "ls && make coverage"
+  - "make coverage"
