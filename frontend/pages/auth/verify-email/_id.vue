@@ -5,6 +5,9 @@
 <script>
 export default {
   middleware: 'anonymous',
+  head: {
+    title: 'Verify email page'
+  },
   asyncData({ params }) {
     return {
       id: params.id,
@@ -13,7 +16,7 @@ export default {
     }
   },
   mounted() {
-    this.$store.dispatch('verifyEmail', {
+    this.$store.dispatch('auth/verifyEmail', {
       key: this.$route.params.id
     })
   }

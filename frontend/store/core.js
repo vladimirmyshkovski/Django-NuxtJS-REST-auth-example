@@ -1,11 +1,11 @@
-const state = () => ({
+export const state = () => ({
   loading: false,
   clipped: false,
   drawer: false,
   fixed: false
 })
 
-const getters = {
+export const getters = {
   loading(state) {
     return state.loading
   },
@@ -20,7 +20,7 @@ const getters = {
   }
 }
 
-const mutations = {
+export const mutations = {
   setLoading(state, payload) {
     state.loading = payload
   },
@@ -29,11 +29,4 @@ const mutations = {
   }
 }
 
-const actions = {}
-
-export default {
-  state,
-  getters,
-  mutations,
-  actions
-}
+export const actions = {}
