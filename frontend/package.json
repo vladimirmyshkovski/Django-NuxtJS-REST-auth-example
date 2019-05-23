@@ -1,6 +1,6 @@
 {
   "name": "frontend",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "Nuxt with Vuetify as Component Framework for Django REST authentication",
   "author": "Vladimir Myshkovski",
   "private": true,
