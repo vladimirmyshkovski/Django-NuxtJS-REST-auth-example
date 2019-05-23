@@ -76,8 +76,8 @@ coverage:
 	sudo docker-compose -f ${ENVIRONMENT}.yml run --rm django coverage html
 
 codecov:
+	sudo docker-compose -f ${ENVIRONMENT}.yml run --rm django codecov --token=${CODECOV_TOKEN}
 	sudo docker-compose -f ${ENVIRONMENT}.yml run --rm django pytest . -s --cov --no-cov-on-fail
-
 
 pre-commit:
 	sudo docker-compose -f ${ENVIRONMENT}.yml run --rm django mypy django_nustjs_rest_auth_example
