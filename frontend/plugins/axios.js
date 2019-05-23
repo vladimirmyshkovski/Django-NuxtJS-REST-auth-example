@@ -1,6 +1,6 @@
 export default function({ store, $axios, redirect }) {
   $axios.onRequest(config => {
-    store.commit('setLoading', true)
+    store.commit('core/setLoading', true)
     if (store.state.auth.token) {
       config.headers.common.Authorization = `JWT ${store.state.auth.token}`
     }
@@ -9,18 +9,18 @@ export default function({ store, $axios, redirect }) {
     const code = parseInt(error.response && error.response.status)
     if (code === 401) {
       redirect('/')
-      store.commit('clearMessages')
-      store.commit('setMessage', {
+      store.dispatch('alert/clearMessages')
+      store.dispatch('alert/setMessage', {
         type: 'error',
         text: 'Your session has expired'
       })
-      store.commit('showMessages')
-      store.commit('clearCookie', { key: 'JWT' })
-      store.commit('setToken', null)
+      store.dispatch('alert/showMessages')
+      store.commit('auth/clearCookie', { key: 'JWT' })
+      store.commit('auth/setToken', null)
     }
-    store.commit('setLoading', false)
+    store.commit('core/setLoading', false)
   })
   $axios.onResponse(() => {
-    store.commit('setLoading', false)
+    store.commit('core/setLoading', false)
   })
 }

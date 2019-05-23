@@ -1,6 +1,6 @@
 <template>
   <v-container fluid>
-    <v-layout justify-center mt-5>
+    <v-layout justify-center>
       <v-card>
         <v-card-text>
           <v-container>
@@ -41,11 +41,10 @@
               </v-layout>
               <v-layout justify-center mt-3>
                 <v-btn
-                  :disabled="this.$store.getters.loading"
-                  :loading="this.$store.getters.loading"
+                  :disabled="$store.state.core.loading"
+                  :loading="$store.state.core.loading"
                   type="submit"
                   color="success"
-                  class="grey--text text--darken-4"
                 >
                   Sign in
                   <span slot="loader" class="custom-loader">
@@ -53,13 +52,13 @@
                   </span>
                 </v-btn>
               </v-layout>
-              <v-layout justify-center mt-3>
-                <router-link :to="signUpUrl" class="white--text">
+              <v-layout justify-center mt-3 class="text-xs-center">
+                <router-link :to="signUpUrl">
                   You do not have an account?
                 </router-link>
               </v-layout>
-              <v-layout justify-center mt-3>
-                <router-link :to="restorePasswordUrl" class="white--text">
+              <v-layout justify-center mt-3 class="text-xs-center">
+                <router-link :to="restorePasswordUrl">
                   Forgot your password?
                 </router-link>
               </v-layout>
@@ -70,10 +69,12 @@
     </v-layout>
   </v-container>
 </template>
+<style>
+@import '@/assets/style/custom-loader.css';
+</style>
 <script>
 export default {
   middleware: 'anonymous',
-  layout: 'default',
   head: {
     title: 'SignIn page',
     script: [
@@ -98,26 +99,32 @@ export default {
       facebookLoginParams: {
         scope: 'email',
         return_scopes: true
-      },
-      googleSigninParams: {
-        scope: 'email'
       }
     }
   },
   async mounted() {
     await this.$nextTick(() => {
-      window.FB.getLoginStatus(response => {
-        if (response.status === 'connected') {
-          // this.$store.dispatch('facebookSignUp', response.authResponse)
-        }
-      })
+      if (window.FB) {
+        window.FB.getLoginStatus(response => {
+          if (response.status === 'connected') {
+            this.$store.dispatch('auth/facebookSignUp', response.authResponse)
+          }
+        })
+      }
+      if (
+        window.gapi &&
+        window.gapi.auth2.getAuthInstance() &&
+        window.gapi.auth2.getAuthInstance().isSignedIn.get()
+      ) {
+        this.onGoogleSignin()
+      }
     })
   },
   methods: {
     onFacebookSignin(event, data) {
       window.FB.login(response => {
         if (response.status === 'connected') {
-          this.$store.dispatch('facebookSignUp', response.authResponse)
+          this.$store.dispatch('auth/facebookSignUp', response.authResponse)
         }
       }, this.facebookLoginParams)
     },
@@ -129,19 +136,13 @@ export default {
         })
         const authInstance = window.gapi.auth2.getAuthInstance()
         window.gapi.auth2.SignInOptions = { scope: 'profile email' }
-        authInstance
-          .signIn({ scope: 'profile email' })
-          .then(response => {
-            console.log('response', response.Zi) // eslint-disable-line no-console
-            this.$store.dispatch('googleSignUp', response.Zi)
-          })
-          .catch(error => {
-            console.log('error', error) // eslint-disable-line no-console
-          })
+        authInstance.signIn({ scope: 'profile email' }).then(response => {
+          this.$store.dispatch('auth/googleSignUp', response.Zi)
+        })
       })
     },
     onSignin() {
-      this.$store.dispatch('signIn', {
+      this.$store.dispatch('auth/signIn', {
         username: this.username,
         password: this.password
       })

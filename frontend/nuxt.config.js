@@ -44,8 +44,8 @@ export default {
    */
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
-    '@nuxtjs/axios',
-    '@nuxtjs/pwa'
+    ['@nuxtjs/axios'],
+    ['@nuxtjs/pwa']
   ],
   /*
    ** Axios module configuration
@@ -56,7 +56,7 @@ export default {
     debug: process.env.NODE_ENV !== 'production'
   },
   proxy: {
-    '/api': process.env.NUXT_API_PROXY
+    '/api': process.env.NUXT_API_PROXY || 'http://localhost:8000'
   },
 
   /*

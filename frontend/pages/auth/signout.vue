@@ -1,6 +1,6 @@
 <template>
   <v-container fluid>
-    <v-layout justify-center mt-5>
+    <v-layout justify-center>
       <v-card>
         <v-card-text>
           <v-container>
@@ -14,7 +14,6 @@
                   :loading="this.$store.getters.loading"
                   type="submit"
                   color="success"
-                  class="grey--text text--darken-4"
                 >
                   Sign out
                   <span slot="loader" class="custom-loader">
@@ -29,14 +28,19 @@
     </v-layout>
   </v-container>
 </template>
-
+<style>
+@import '@/assets/style/custom-loader.css';
+</style>
 <script>
 export default {
   middleware: 'auth',
   layout: 'default',
+  head: {
+    title: 'SignIn page'
+  },
   methods: {
     onSignout() {
-      this.$store.dispatch('signOut')
+      this.$store.dispatch('auth/signOut')
     }
   }
 }

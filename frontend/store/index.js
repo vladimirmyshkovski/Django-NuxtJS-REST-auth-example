@@ -1,35 +1,24 @@
-import Vue from 'vue'
-import Vuex from 'vuex'
 import Cookie from 'cookie'
 
-import alert from '@/store/modules/alert'
-import auth from '@/store/modules/auth'
-import core from '@/store/modules/core'
+export const strict = false
 
-Vue.use(Vuex)
-const createStore = () => {
-  return new Vuex.Store({
-    namespaced: true,
-    modules: {
-      alert,
-      auth,
-      core
-    },
-    actions: {
-      async nuxtServerInit({ commit }, { req, $axios }) {
-        if (req !== undefined) {
-          const cookies = Cookie.parse(req.headers.cookie || '')
-          const token = cookies.JWT || ''
-          if (token) {
-            commit('setToken', token)
-            commit('setLoggedIn', true)
-            const user = await $axios.$get('/api/v1/auth/user/')
-            commit('setUser', user)
-          }
-        }
+export const state = () => ({})
+
+export const getters = {}
+
+export const mutations = {}
+
+export const actions = {
+  async nuxtServerInit({ commit }, { req, $axios }) {
+    if (req !== undefined) {
+      const cookies = Cookie.parse(req.headers.cookie || '')
+      const token = cookies.JWT || ''
+      if (token) {
+        commit('auth/setToken', token)
+        commit('auth/setLoggedIn', true)
+        const user = await $axios.$get('/api/v1/auth/user/')
+        commit('auth/setUser', user)
       }
     }
-  })
+  }
 }
-
-export default createStore

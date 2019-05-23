@@ -1,10 +1,10 @@
 <template>
-  <v-layout v-if="$store.getters.messages" justify-center mt-5>
+  <v-layout justify-center py-2>
     <v-alert
-      v-for="message in $store.getters.messages"
+      v-for="message in $store.state.alert.messages"
       :key="message.text"
       :type="message.type"
-      :value="$store.getters.show"
+      :value="$store.state.alert.show"
       dismissible
       transition="scale-transition"
       @input="onClose"

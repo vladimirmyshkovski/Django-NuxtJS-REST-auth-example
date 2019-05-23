@@ -1,6 +1,6 @@
 <template>
   <v-container>
-    <v-layout justify-center mt-5>
+    <v-layout justify-center>
       <v-card>
         <v-card-text>
           <v-container>
@@ -41,9 +41,14 @@
     </v-layout>
   </v-container>
 </template>
-
+<style>
+@import '@/assets/style/custom-loader.css';
+</style>
 <script>
 export default {
+  head: {
+    title: 'Password reset page'
+  },
   data() {
     return {
       email: '',
@@ -72,7 +77,7 @@ export default {
   },
   methods: {
     onRestorePassword() {
-      this.$store.dispatch('restorePassword', {
+      this.$store.dispatch('auth/restorePassword', {
         email: this.email
       })
     }

@@ -1,6 +1,6 @@
 <template>
   <v-container>
-    <v-layout justify-center mt-5>
+    <v-layout justify-center>
       <v-card>
         <v-card-text>
           <v-container>
@@ -39,8 +39,8 @@
               </v-layout>
               <v-layout justify-center mt-3>
                 <v-btn
-                  :disabled="this.$store.getters.loading"
-                  :loading="this.$store.getters.loading"
+                  :disabled="$store.state.core.loading"
+                  :loading="$store.state.core.loading"
                   type="submit"
                   color="success"
                 >
@@ -57,9 +57,14 @@
     </v-layout>
   </v-container>
 </template>
-
+<style>
+@import '@/assets/style/custom-loader.css';
+</style>
 <script>
 export default {
+  head: {
+    title: 'Password reset page'
+  },
   data() {
     return {
       password: '',
@@ -89,7 +94,7 @@ export default {
   },
   methods: {
     onRestorePassword() {
-      this.$store.dispatch('restorePasswordConfirm', {
+      this.$store.dispatch('auth/restorePasswordConfirm', {
         uid: this.uid,
         token: this.token,
         new_password1: this.password,

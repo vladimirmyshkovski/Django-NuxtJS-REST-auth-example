@@ -1,0 +1,448 @@
+
+{
+  "header": {
+    "event": "Allocation failed - JavaScript heap out of memory",
+    "trigger": "FatalError",
+    "filename": "report.20190523.051507.19312.0.001.json",
+    "dumpEventTime": "2019-05-23T05:15:07Z",
+    "dumpEventTimeStamp": "1558574107792",
+    "processId": 19312,
+    "cwd": "/home/narnik/Программы/PythonProjects/DjangoProjects/django_nustjs_rest_auth_example/frontend",
+    "commandLine": [
+      "node",
+      "/home/narnik/Программы/PythonProjects/DjangoProjects/django_nustjs_rest_auth_example/frontend/node_modules/.bin/nuxt"
+    ],
+    "nodejsVersion": "v12.2.0",
+    "glibcVersionRuntime": "2.24",
+    "glibcVersionCompiler": "2.17",
+    "wordSize": 64,
+    "arch": "x64",
+    "platform": "linux",
+    "componentVersions": {
+      "node": "12.2.0",
+      "v8": "7.4.288.21-node.17",
+      "uv": "1.28.0",
+      "zlib": "1.2.11",
+      "brotli": "1.0.7",
+      "ares": "1.15.0",
+      "modules": "72",
+      "nghttp2": "1.38.0",
+      "napi": "4",
+      "llhttp": "1.1.3",
+      "http_parser": "2.8.0",
+      "openssl": "1.1.1b",
+      "cldr": "35.1",
+      "icu": "64.2",
+      "tz": "2019a",
+      "unicode": "12.1"
+    },
+    "release": {
+      "name": "node",
+      "headersUrl": "https://nodejs.org/download/release/v12.2.0/node-v12.2.0-headers.tar.gz",
+      "sourceUrl": "https://nodejs.org/download/release/v12.2.0/node-v12.2.0.tar.gz"
+    },
+    "osName": "Linux",
+    "osRelease": "4.19.0-1-amd64",
+    "osVersion": "#1 SMP Debian 4.19.5-2~mx17+1 (2018-12-12)",
+    "osMachine": "x86_64",
+    "host": "mx"
+  },
+  "javascriptStack": {
+    "message": "No stack.",
+    "stack": [
+      "Unavailable."
+    ]
+  },
+  "nativeStack": [
+    {
+      "pc": "0x0000000000aa94ed",
+      "symbol": "report::TriggerNodeReport(v8::Isolate*, node::Environment*, char const*, char const*, std::string const&, v8::Local<v8::String>) [node]"
+    },
+    {
+      "pc": "0x000000000098d653",
+      "symbol": "node::OnFatalError(char const*, char const*) [node]"
+    },
+    {
+      "pc": "0x0000000000b077ce",
+      "symbol": "v8::Utils::ReportOOMFailure(v8::internal::Isolate*, char const*, bool) [node]"
+    },
+    {
+      "pc": "0x0000000000b07b49",
+      "symbol": "v8::internal::V8::FatalProcessOutOfMemory(v8::internal::Isolate*, char const*, bool) [node]"
+    },
+    {
+      "pc": "0x0000000000f12c05",
+      "symbol": " [node]"
+    },
+    {
+      "pc": "0x0000000000f1d56b",
+      "symbol": "v8::internal::Heap::PerformGarbageCollection(v8::internal::GarbageCollector, v8::GCCallbackFlags) [node]"
+    },
+    {
+      "pc": "0x0000000000f1e287",
+      "symbol": "v8::internal::Heap::CollectGarbage(v8::internal::AllocationSpace, v8::internal::GarbageCollectionReason, v8::GCCallbackFlags) [node]"
+    },
+    {
+      "pc": "0x0000000000f20d25",
+      "symbol": "v8::internal::Heap::AllocateRawWithRetryOrFail(int, v8::internal::AllocationType, v8::internal::AllocationAlignment) [node]"
+    },
+    {
+      "pc": "0x0000000000eebd50",
+      "symbol": "v8::internal::Factory::NewFillerObject(int, bool, v8::internal::AllocationSpace) [node]"
+    },
+    {
+      "pc": "0x00000000011bdb5e",
+      "symbol": "v8::internal::Runtime_AllocateInNewSpace(int, unsigned long*, v8::internal::Isolate*) [node]"
+    },
+    {
+      "pc": "0x0000000001a86142",
+      "symbol": " [node]"
+    }
+  ],
+  "javascriptHeap": {
+    "totalMemory": 2150948864,
+    "totalCommittedMemory": 2148520760,
+    "usedMemory": 1976103728,
+    "availableMemory": 49303584,
+    "memoryLimit": 2197815296,
+    "heapSpaces": {
+      "read_only_space": {
+        "memorySize": 524288,
+        "committedMemory": 32024,
+        "capacity": 523976,
+        "used": 31712,
+        "available": 492264
+      },
+      "new_space": {
+        "memorySize": 2097152,
+        "committedMemory": 1323744,
+        "capacity": 1047952,
+        "used": 274712,
+        "available": 773240
+      },
+      "old_space": {
+        "memorySize": 1854005248,
+        "committedMemory": 1853709008,
+        "capacity": 1737156832,
+        "used": 1737033136,
+        "available": 123696
+      },
+      "code_space": {
+        "memorySize": 3309568,
+        "committedMemory": 2495072,
+        "capacity": 2390400,
+        "used": 2390400,
+        "available": 0
+      },
+      "map_space": {
+        "memorySize": 244846592,
+        "committedMemory": 244794896,
+        "capacity": 190380720,
+        "used": 190380720,
+        "available": 0
+      },
+      "large_object_space": {
+        "memorySize": 45256704,
+        "committedMemory": 45256704,
+        "capacity": 45171224,
+        "used": 45171224,
+        "available": 0
+      },
+      "code_large_object_space": {
+        "memorySize": 909312,
+        "committedMemory": 909312,
+        "capacity": 821824,
+        "used": 821824,
+        "available": 0
+      },
+      "new_large_object_space": {
+        "memorySize": 0,
+        "committedMemory": 0,
+        "capacity": 1047952,
+        "used": 0,
+        "available": 1047952
+      }
+    }
+  },
+  "resourceUsage": {
+    "userCpuSeconds": 212.539,
+    "kernelCpuSeconds": 3.61966,
+    "cpuConsumptionPercent": 165.007,
+    "maxRss": 2308050944,
+    "pageFaults": {
+      "IORequired": 3,
+      "IONotRequired": 691817
+    },
+    "fsActivity": {
+      "reads": 344,
+      "writes": 416
+    }
+  },
+  "uvthreadResourceUsage": {
+    "userCpuSeconds": 118.443,
+    "kernelCpuSeconds": 1.92761,
+    "cpuConsumptionPercent": 91.8862,
+    "fsActivity": {
+      "reads": 336,
+      "writes": 0
+    }
+  },
+  "libuv": [
+  ],
+  "environmentVariables": {
+    "SUDO_GID": "1000",
+    "npm_config_cache_lock_stale": "60000",
+    "npm_config_ham_it_up": "",
+    "npm_package_devDependencies_babel_core": "7.0.0-bridge.0",
+    "npm_config_legacy_bundling": "",
+    "npm_config_sign_git_tag": "",
+    "MAIL": "/var/mail/root",
+    "USER": "root",
+    "npm_package_devDependencies_eslint_plugin_standard": ">=4.0.0",
+    "npm_package_devDependencies_jest": "^24.1.0",
+    "npm_config_user_agent": "npm/6.9.0 node/v12.2.0 linux x64",
+    "npm_config_always_auth": "",
+    "npm_package_dependencies_vuetify_loader": "^1.2.1",
+    "npm_config_bin_links": "true",
+    "npm_config_key": "",
+    "npm_package_devDependencies_nodemon": "^1.18.9",
+    "npm_package_devDependencies_eslint_plugin_node": ">=8.0.1",
+    "npm_package_devDependencies_vue_jest": "^3.0.3",
+    "npm_config_allow_same_version": "",
+    "npm_config_description": "true",
+    "npm_config_fetch_retries": "2",
+    "npm_config_heading": "npm",
+    "npm_config_if_present": "",
+    "npm_config_init_version": "1.0.0",
+    "npm_config_user": "1000",
+    "npm_node_execpath": "/usr/bin/node",
+    "npm_config_prefer_online": "",
+    "npm_config_noproxy": "",
+    "HOME": "/home/narnik",
+    "npm_package_devDependencies_eslint_plugin_nuxt": ">=0.4.2",
+    "npm_config_force": "",
+    "npm_package_devDependencies_eslint_config_prettier": "^4.1.0",
+    "npm_package_devDependencies_stylus_loader": "^3.0.2",
+    "npm_config_only": "",
+    "npm_config_read_only": "",
+    "npm_package_scripts_precommit": "npm run lint",
+    "npm_config_cache_min": "10",
+    "npm_config_init_license": "ISC",
+    "npm_package_devDependencies_eslint_loader": "^2.1.2",
+    "npm_config_editor": "vi",
+    "npm_config_rollback": "true",
+    "npm_config_tag_version_prefix": "v",
+    "npm_config_cache_max": "Infinity",
+    "npm_config_timing": "",
+    "npm_config_userconfig": "/home/narnik/.npmrc",
+    "npm_package_dependencies__nuxtjs_pwa": "^2.6.0",
+    "npm_config_engine_strict": "",
+    "npm_config_init_author_name": "",
+    "npm_config_init_author_url": "",
+    "npm_config_preid": "",
+    "npm_config_tmp": "/tmp",
+    "COLORTERM": "truecolor",
+    "npm_package_description": "Nuxt with Vuetify as Component Framework for Django REST authentication",
+    "npm_config_depth": "Infinity",
+    "npm_config_package_lock_only": "",
+    "npm_config_save_dev": "",
+    "npm_config_usage": "",
+    "npm_package_dependencies_nuxt": "^2.4.0",
+    "npm_package_dependencies_nuxt_fontawesome": "^0.4.0",
+    "npm_package_readmeFilename": "README.md",
+    "npm_config_metrics_registry": "https://registry.npmjs.org/",
+    "npm_config_cafile": "",
+    "npm_config_otp": "",
+    "npm_config_package_lock": "true",
+    "npm_config_progress": "true",
+    "npm_config_https_proxy": "",
+    "npm_config_save_prod": "",
+    "SUDO_UID": "1000",
+    "npm_package_scripts_dev": "nuxt",
+    "npm_package_devDependencies_prettier": "^1.16.4",
+    "npm_package_devDependencies_babel_jest": "^24.1.0",
+    "npm_config_audit": "true",
+    "npm_config_cidr": "",
+    "npm_config_onload_script": "",
+    "npm_config_sso_type": "oauth",
+    "LOGNAME": "root",
+    "npm_package_devDependencies_eslint_plugin_import": ">=2.16.0",
+    "npm_config_rebuild_bundle": "true",
+    "npm_config_save_bundle": "",
+    "npm_config_shell": "/bin/bash",
+    "npm_package_private": "true",
+    "npm_package_devDependencies_eslint_config_standard": ">=12.0.0",
+    "npm_config_dry_run": "",
+    "npm_config_prefix": "/usr",
+    "npm_package_scripts_lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
+    "npm_config_scope": "",
+    "npm_config_browser": "",
+    "npm_config_cache_lock_wait": "10000",
+    "npm_config_ignore_prepublish": "",
+    "npm_config_registry": "https://registry.npmjs.org/",
+    "npm_config_save_optional": "",
+    "npm_config_searchopts": "",
+    "npm_config_versions": "",
+    "TERM": "xterm-256color",
+    "USERNAME": "root",
+    "npm_package_dependencies_vuetify": "^1.5.5",
+    "npm_config_cache": "/home/narnik/.npm",
+    "npm_config_proxy": "",
+    "npm_config_send_metrics": "",
+    "npm_package_scripts_start": "nuxt start",
+    "npm_config_global_style": "",
+    "npm_config_ignore_scripts": "",
+    "npm_config_version": "",
+    "npm_package_devDependencies_eslint_plugin_jest": ">=22.3.0",
+    "npm_config_local_address": "",
+    "npm_config_viewer": "man",
+    "npm_config_node_gyp": "/usr/lib/node_modules/npm/node_modules/node-gyp/bin/node-gyp.js",
+    "PATH": "/usr/lib/node_modules/npm/node_modules/npm-lifecycle/node-gyp-bin:/home/narnik/Программы/PythonProjects/DjangoProjects/django_nustjs_rest_auth_example/frontend/node_modules/.bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+    "npm_package_name": "frontend",
+    "npm_package_dependencies_cross_env": "^5.2.0",
+    "npm_config_audit_level": "low",
+    "npm_config_prefer_offline": "",
+    "NODE": "/usr/bin/node",
+    "npm_package_devDependencies_stylus": "^0.54.5",
+    "npm_config_color": "true",
+    "npm_config_sign_git_commit": "",
+    "DISPLAY": ":0.0",
+    "npm_config_fetch_retry_mintimeout": "10000",
+    "npm_config_maxsockets": "50",
+    "npm_config_offline": "",
+    "npm_config_sso_poll_frequency": "500",
+    "LANG": "ru_RU.UTF-8",
+    "npm_package_dependencies__fortawesome_vue_fontawesome": "^0.1.6",
+    "npm_package_devDependencies__nuxtjs_eslint_config": "^0.0.1",
+    "npm_package_devDependencies_eslint": "^5.15.1",
+    "npm_package_devDependencies__vue_test_utils": "^1.0.0-beta.27",
+    "npm_config_umask": "0022",
+    "LS_COLORS": "rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:",
+    "XAUTHORITY": "/home/narnik/.Xauthority",
+    "npm_package_gitHead": "33ca285c1a28cfe79676ed0f137f636369967343",
+    "npm_config_fetch_retry_maxtimeout": "60000",
+    "npm_config_loglevel": "notice",
+    "npm_config_logs_max": "10",
+    "npm_config_message": "%s",
+    "npm_lifecycle_script": "nuxt",
+    "SUDO_COMMAND": "/usr/bin/npm run dev",
+    "npm_package_scripts_test": "jest",
+    "npm_config_ca": "",
+    "npm_config_cert": "",
+    "npm_config_global": "",
+    "npm_config_link": "",
+    "SHELL": "/bin/bash",
+    "npm_package_version": "1.0.0",
+    "npm_config_access": "",
+    "npm_config_also": "",
+    "npm_config_save": "true",
+    "npm_config_unicode": "true",
+    "npm_lifecycle_event": "dev",
+    "npm_package_scripts_build": "nuxt build",
+    "npm_config_argv": "{\"remain\":[],\"cooked\":[\"run\",\"dev\"],\"original\":[\"run\",\"dev\"]}",
+    "npm_config_before": "",
+    "npm_config_long": "",
+    "npm_config_production": "",
+    "npm_config_searchlimit": "20",
+    "npm_config_unsafe_perm": "",
+    "npm_config_update_notifier": "true",
+    "SUDO_USER": "narnik",
+    "npm_package_dependencies__fortawesome_free_brands_svg_icons": "^5.8.2",
+    "npm_config_auth_type": "legacy",
+    "npm_config_node_version": "12.2.0",
+    "npm_config_tag": "latest",
+    "npm_config_git_tag_version": "true",
+    "npm_config_commit_hooks": "true",
+    "npm_config_script_shell": "",
+    "npm_config_shrinkwrap": "true",
+    "npm_package_scripts_generate": "nuxt generate",
+    "npm_config_fetch_retry_factor": "10",
+    "npm_config_save_exact": "",
+    "npm_config_strict_ssl": "true",
+    "npm_package_scripts_lintfix": "eslint --fix --ext .js,.vue --ignore-path .gitignore .",
+    "npm_package_dependencies_js_cookie": "^2.2.0",
+    "npm_package_devDependencies_eslint_plugin_prettier": "^3.0.1",
+    "npm_config_dev": "",
+    "npm_config_globalconfig": "/usr/etc/npmrc",
+    "npm_config_init_module": "/home/narnik/.npm-init.js",
+    "npm_config_parseable": "",
+    "npm_config_globalignorefile": "/usr/etc/npmignore",
+    "npm_execpath": "/usr/lib/node_modules/npm/bin/npm-cli.js",
+    "PWD": "/home/narnik/Программы/PythonProjects/DjangoProjects/django_nustjs_rest_auth_example/frontend",
+    "npm_package_author_name": "Vladimir Myshkovski",
+    "npm_package_dependencies_vue_jazzicon": "^0.1.3",
+    "npm_config_cache_lock_retries": "10",
+    "npm_config_searchstaleness": "900",
+    "npm_package_devDependencies_eslint_plugin_vue": "^5.2.2",
+    "npm_config_node_options": "",
+    "npm_config_save_prefix": "^",
+    "npm_config_scripts_prepend_node_path": "warn-only",
+    "npm_package_dependencies__nuxtjs_axios": "^5.3.6",
+    "npm_package_devDependencies_babel_eslint": "^10.0.1",
+    "npm_config_group": "1000",
+    "npm_config_init_author_email": "",
+    "npm_config_searchexclude": "",
+    "npm_package_devDependencies_eslint_plugin_promise": ">=4.0.1",
+    "npm_config_git": "git",
+    "npm_config_optional": "true",
+    "npm_config_json": "",
+    "INIT_CWD": "/home/narnik/Программы/PythonProjects/DjangoProjects/django_nustjs_rest_auth_example/frontend",
+    "NODE_ENV": "development",
+    "_AXIOS_BASE_URL_": "http://localhost:3000/",
+    "VUE_ENV": "server"
+  },
+  "userLimits": {
+    "core_file_size_blocks": {
+      "soft": 0,
+      "hard": "unlimited"
+    },
+    "data_seg_size_kbytes": {
+      "soft": "unlimited",
+      "hard": "unlimited"
+    },
+    "file_size_blocks": {
+      "soft": "unlimited",
+      "hard": "unlimited"
+    },
+    "max_locked_memory_bytes": {
+      "soft": 65536,
+      "hard": 65536
+    },
+    "max_memory_size_kbytes": {
+      "soft": "unlimited",
+      "hard": "unlimited"
+    },
+    "open_files": {
+      "soft": 4096,
+      "hard": 4096
+    },
+    "stack_size_bytes": {
+      "soft": 8388608,
+      "hard": "unlimited"
+    },
+    "cpu_time_seconds": {
+      "soft": "unlimited",
+      "hard": "unlimited"
+    },
+    "max_user_processes": {
+      "soft": 31318,
+      "hard": 31318
+    },
+    "virtual_memory_kbytes": {
+      "soft": "unlimited",
+      "hard": "unlimited"
+    }
+  },
+  "sharedObjects": [
+    "linux-vdso.so.1",
+    "/lib/x86_64-linux-gnu/libdl.so.2",
+    "/lib/x86_64-linux-gnu/librt.so.1",
+    "/usr/lib/x86_64-linux-gnu/libstdc++.so.6",
+    "/lib/x86_64-linux-gnu/libm.so.6",
+    "/lib/x86_64-linux-gnu/libgcc_s.so.1",
+    "/lib/x86_64-linux-gnu/libpthread.so.0",
+    "/lib/x86_64-linux-gnu/libc.so.6",
+    "/lib64/ld-linux-x86-64.so.2",
+    "/lib/x86_64-linux-gnu/libnss_files.so.2"
+  ]
+}
