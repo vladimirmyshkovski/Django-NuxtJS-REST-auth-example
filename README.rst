@@ -13,6 +13,7 @@ Django NustJS REST auth example
 Basic Commands
 --------------
 
+
 Setting Up Your Users
 ^^^^^^^^^^^^^^^^^^^^^
 
@@ -24,6 +25,7 @@ Setting Up Your Users
 
 For convenience, you can keep your normal user logged in on Chrome and your superuser logged in on Firefox (or similar), so that you can see how the site behaves for both kinds of users.
 
+
 Type checks
 ^^^^^^^^^^^
 
@@ -32,6 +34,7 @@ Running type checks with mypy:
 ::
 
   $ make mypy
+
 
 Test coverage
 ^^^^^^^^^^^^^
@@ -47,15 +50,6 @@ Running tests with py.test
 ::
 
   $ make test
-
-Live reloading and Sass CSS compilation
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Moved to `Live reloading and SASS compilation`_.
-
-.. _`Live reloading and SASS compilation`: http://cookiecutter-django.readthedocs.io/en/latest/live-reloading-and-sass-compilation.html
-
-
 
 
 Email Server
@@ -85,4 +79,3 @@ Deployment
 ----------
 
 The following details how to deploy this application.
-
